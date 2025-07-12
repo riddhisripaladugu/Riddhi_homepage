@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Riddhi's Luxe Homepage ✨</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0a0a0a;
+      color: #f5f5f5;
+      font-family: 'Poppins', sans-serif;
+      padding: 2rem;
+    }
+    h1, h2 { color: #ffd700; }
+    a { color: #ffd700; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .section { margin-bottom: 2.5rem; }
+    .card {
+      background-color: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
+      margin-bottom: 1rem;
+    }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    #music-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ffd700;
+      color: #000;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .sparkle {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: #ffd700;
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h1>Hi, I’m Riddhi 👑</h1>
+    <p>I’m a <strong>B.Tech CSE student at Gudlavalleru</strong> & <strong>BS Data Science student at IIT Madras</strong>. I love tech, luxury, skincare and building the life I dream of 💻💄✨</p>
+  </div>
+
+  <div class="section card">
+    <h2>About Me 🪄</h2>
+    <p>
+      Hey there! I’m <strong>Riddhi</strong> — part coder, part dreamer, and fully enchanted by the magical blend of <em>technology, elegance, and ambition</em>.  
+      I'm currently studying <span class="highlight">CSE at Gudlavalleru</span> and <span class="highlight">Data Science at IIT Madras</span> — like a student of both Hogwarts and MIT ✨
+    </p>
+    <p>
+      I find beauty in algorithms and aesthetics — creating apps, detecting intruders, curating glam, and chasing that golden life like a modern-day Hermione with YSL heels 👠🪄
+    </p>
+    <p>
+      🎯 My vision before turning 26?  
+      🏠 A chic apartment, 🚗 a ride of my own, 🎒solo trips to Japan, Korea & Europe,  
+      🧴high-end skincare, 💻 a thriving tech career — all with a wand in one hand and a laptop in the other.
+    </p>
+    <p>
+      ⚡ Favorite Spell: <em>“Accio Dream Life”</em>  
+      Let’s build magic together — through code, confidence, and ambition. 💬
+    </p>
+  </div>
+
+  <div class="section card">
+    <h2>Skills</h2>
+    <ul>
+      <li>Languages: Python, Java, C</li>
+      <li>Tools: Git, GitHub, Canva, VS Code</li>
+      <li>Learning: Web Development, ML, Data Science</li>
+    </ul>
+  </div>
+
+  <div class="section card">
+    <h2>Projects</h2>
+    <ul>
+      <li><a href="https://riddhisripaladugu.github.io/cgpa-calculator/" target="_blank">📊 CGPA Calculator</a></li>
+      <li><a href="#">📧 Spam Email Detector</a> (coming soon)</li>
+      <li><a href="https://riddhisripaladugu.github.io/intruder-detection-app/" target="_blank">🕵️‍♀️ Intruder Face Detector</a></li>
+    </ul>
+  </div>
+
+  <div class="section card">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="img1.jpg" alt="Riddhi 1">
+      <img src="img2.jpg" alt="Riddhi 2">
+      <img src="img3.jpg" alt="Riddhi 3">
+      <img src="img4.jpg" alt="Riddhi 4">
+      <img src="img5.jpg" alt="Riddhi 5">
+    </div>
+  </div>
+
+  <div class="section card">
+    <h2>Connect With Me</h2>
+    <p>
+      📧 riddhisripaladugu@gmail.com<br>
+      💼 <a href="https://github.com/riddhisripaladugu" target="_blank">GitHub</a><br>
+      🔗 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+    </p>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
+    <source src="https://dl.dropboxusercontent.com/scl/fi/oyqcp8t88cnwykp1qmcxd/Young-And-Beautiful-Lana-Del-Rey.mp3?rlkey=86w6rhv90vibd9qh52g2yqst5&dl=0" type="audio/mp3">
+  </audio>
+  <button id="music-toggle">Play Music</button>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    const button = document.getElementById('music-toggle');
+    let isPlaying = false;
+
+    button.addEventListener('click', () => {
+      if (!isPlaying) {
+        music.play();
+        button.textContent = 'Pause Music';
+      } else {
+        music.pause();
+        button.textContent = 'Play Music';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // Sparkles
+    for (let i = 0; i < 20; i++) {
+      const s = document.createElement('div');
+      s.classList.add('sparkle');
+      s.style.left = Math.random() * 100 + 'vw';
+      s.style.top = Math.random() * 100 + 'vh';
+      s.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(s);
+    }
+  </script>
+</body>
+</html>
